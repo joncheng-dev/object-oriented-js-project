@@ -1,0 +1,14 @@
+Pizza point of sales
+
+need:
+-create a list of orders, 
+-their costs, 
+-customizations (toppings, pizza size)
+-be able to delete orders
+
+
+---------------------
+PIZZA OBJECT
+Pizza sizes
+Pizza toppings
+Pizza cost
