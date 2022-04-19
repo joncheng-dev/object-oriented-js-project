@@ -6,9 +6,42 @@ need:
 -customizations (toppings, pizza size)
 -be able to delete orders
 
-
 ---------------------
-PIZZA OBJECT
+ORDER OBJECT (constructor)
+
+PIZZA OBJECT (constructor)
 Pizza sizes
 Pizza toppings
 Pizza cost
+
+Sizes
+-individual
+-medium
+-large
+
+Toppings
+-Pepperoni
+-Sausage
+-Bell Peppers
+-Pineapple
+-Olives
+-Ham
+
+Prototypes.
+
+Click button:
+-Quantity
+-Add pizza.
+
+click button: 
+-add to cart. 
+-total
+-checkout
+
+Take information from html page.
+-Size of pizza.
+-Select toppings 
+(once you select it, toppings are listed)
+-Remove toppings
+(in the existing list, you can choose to remove)
+(button to remove)

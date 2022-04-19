@@ -1,0 +1,11 @@
+h1 {
+  text-align: center;
+}
+
+h4 {
+  text-decoration: underline;
+}
+
+#side-bar {
+  border-left-style: dotted;
+}
