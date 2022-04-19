@@ -17,7 +17,9 @@
           style="background-color: green; border: 1px solid"
         >
           <div class="row">
-            <h4>Choose a Size</h4>
+            <div class="col-md-12">
+              <h4>Choose a Size</h4>
+            </div>
           </div>
           <div class="row">
             <div
@@ -48,79 +50,94 @@
             </div>
           </div>
           <div class="row">
-            <form>
-              <div class="row">
-                <div
-                  class="col-md-6"
-                  style="background-color: teal; border: 1px solid"
-                >
-                  <h4>Meats</h4>
-                  <input
-                    type="checkbox"
-                    id="meatTopping1"
-                    name="meatTopping1"
-                    value="pepperoni"
-                  />
-                  <label for="meatTopping1"> Pepperoni</label>
-                  <br />
-                  <input
-                    type="checkbox"
-                    id="meatTopping2"
-                    name="meatTopping2"
-                    value="sausage"
-                  />
-                  <label for="meatTopping2"> Sausage</label>
-                  <br />
-                  <input
-                    type="checkbox"
-                    id="meatTopping3"
-                    name="meatTopping3"
-                    value="ham"
-                  />
-                  <label for="meatTopping3"> Ham</label>
-                  <br />
-                </div>
-                <div
-                  class="col-md-6"
-                  style="background-color: antiquewhite; border: 1px solid"
-                >
-                  <h4>Veggies</h4>
-                  <input
-                    type="checkbox"
-                    id="veggieTopping1"
-                    name="veggieTopping1"
-                    value="mushroom"
-                  />
-                  <label for="veggieTopping1"> Mushroom</label>
-                  <br />
-                  <input
-                    type="checkbox"
-                    id="veggieTopping2"
-                    name="veggieTopping2"
-                    value="olives"
-                  />
-                  <label for="veggieTopping2"> Olives</label>
-                  <br />
-                  <input
-                    type="checkbox"
-                    id="veggieTopping3"
-                    name="veggieTopping3"
-                    value="pineapple"
-                  />
-                  <label for="veggieTopping3"> Pineapple</label>
-                  <br />
-                  <input
-                    type="checkbox"
-                    id="veggieTopping4"
-                    name="veggieTopping4"
-                    value="bellPeppers"
-                  />
-                  <label for="veggieTopping4"> Bell Peppers</label>
-                </div>
-              </div>
-            </form>
+            <div
+              class="col-md-4"
+              style="background-color: teal; border: 1px solid"
+            >
+              <h4>Meats</h4>
+              <input
+                type="checkbox"
+                id="meatTopping1"
+                name="meatTopping1"
+                value="pepperoni"
+              />
+              <label for="meatTopping1"> Pepperoni</label>
+              <br />
+              <input
+                type="checkbox"
+                id="meatTopping2"
+                name="meatTopping2"
+                value="sausage"
+              />
+              <label for="meatTopping2"> Sausage</label>
+              <br />
+              <input
+                type="checkbox"
+                id="meatTopping3"
+                name="meatTopping3"
+                value="ham"
+              />
+              <label for="meatTopping3"> Ham</label>
+              <br />
+            </div>
+            <div
+              class="col-md-4"
+              style="background-color: antiquewhite; border: 1px solid"
+            >
+              <h4>Veggies</h4>
+              <input
+                type="checkbox"
+                id="veggieTopping1"
+                name="veggieTopping1"
+                value="mushroom"
+              />
+              <label for="veggieTopping1"> Mushroom</label>
+              <br />
+              <input
+                type="checkbox"
+                id="veggieTopping2"
+                name="veggieTopping2"
+                value="olives"
+              />
+              <label for="veggieTopping2"> Olives</label>
+              <br />
+              <input
+                type="checkbox"
+                id="veggieTopping3"
+                name="veggieTopping3"
+                value="pineapple"
+              />
+              <label for="veggieTopping3"> Pineapple</label>
+              <br />
+              <input
+                type="checkbox"
+                id="veggieTopping4"
+                name="veggieTopping4"
+                value="bellPeppers"
+              />
+              <label for="veggieTopping4"> Bell Peppers</label>
+            </div>
+            <div
+              class="col-md-4"
+              style="background-color: lightskyblue; border: 1px solid"
+            >
+              <h4>Pizza Preview</h4>
+            </div>
           </div>
-          <div class="row"></div>
+          <div class="row">
+            <div
+              class="col-md-6"
+              style="background-color: aqua; border: 1px solid"
+            >
+              <h4>Quantity</h4>
+            </div>
+            <div
+              class="col-md-6"
+              style="background-color: slateblue; border: 1px solid"
+            >
+              <h4>Add to Cart (button)</h4>
+            </div>
+          </div>
         </div>
         <div
           class="col-md-3"
@@ -128,6 +145,17 @@
           style="background-color: orange; border: 1px solid"
         >
           <h4>Cart</h4>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+          </ul>
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Total</h4>
+              <p>Checkout Button</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
