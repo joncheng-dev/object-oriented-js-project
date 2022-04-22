@@ -45,3 +45,18 @@ Take information from html page.
 -Remove toppings
 (in the existing list, you can choose to remove)
 (button to remove)
+------------
+
+TESTS:
+PASSED
+take information from sizes
+-> Store in variable.
+
+PASSED
+take information from the checkboxes. Store in array.
+-> meat
+-> veggies
+
+take information from quantity. store in variable
+
+add to cart button takes that information and saves into a pizza object
