@@ -1,32 +1,31 @@
 // Business Logic
-function Pizza(size, toppings) {
+function Pizza(size, meatToppings, veggieToppings, quantity) {
   this.size = size;
-  this.toppings = toppings;
+  this.meatToppings = meatToppings;
+  this.veggieToppings = veggieToppings;
+  this.quantity = quantity;
 }
 
 // User Interface Logic
 $(document).ready(function () {
   // After document is loaded.. do this.
   // Check pizza size
-  let size1 = false;
-  let size2 = false;
-  let size3 = false;
+  let size = "";
 
   $("#addToCart").click(function () {
     $(".cartItems").append("<li>Pizza Order</li>");
+
     // Pizza Size
     if ($("#small").is(":checked")) {
-      size1 = true;
+      size = "small";
     }
     if ($("#medium").prop("checked")) {
-      size2 = true;
+      size = "medium";
     }
     if ($("#large").prop("checked")) {
-      size3 = true;
+      size = "large";
     }
-    console.log("Size of pizza: " + size1);
-    console.log("Size of pizza: " + size2);
-    console.log("Size of pizza: " + size3);
+    console.log("Size of pizza: " + size);
 
     let meatToppings = [];
     // Toppings -- Meat
@@ -59,5 +58,13 @@ $(document).ready(function () {
     let quantity = 0;
     quantity = parseInt($("#quantity").val());
     console.log("Quantity: " + quantity);
+
+    let pizza1 = new Pizza(size, meatToppings, veggieToppings, quantity);
+    console.log(
+      "Pizza made: " + pizza1.size,
+      pizza1.meatToppings,
+      pizza1.veggieToppings,
+      pizza1.quantity
+    );
   });
 });

@@ -57,6 +57,9 @@ take information from the checkboxes. Store in array.
 -> meat
 -> veggies
 
+PASSED
 take information from quantity. store in variable
+
+
 
 add to cart button takes that information and saves into a pizza object
