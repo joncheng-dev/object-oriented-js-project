@@ -6,16 +6,41 @@ function Pizza(size, meatToppings, veggieToppings, quantity) {
   this.quantity = quantity;
 }
 
+Pizza.prototype.calculateCost = function () {
+  // To do
+  // Size Cost: Base (S, M, L) - $8, $10, $12
+  let totalCost = 0;
+  let basePrice = 0;
+  if (this.size === "small") {
+    basePrice = 8;
+  } else if (this.size === "medium") {
+    basePrice = 10;
+  } else if (this.size === "large") {
+    basePrice = 12;
+  }
+  // Toppings - Meat: $2 each
+  let meatToppingCost = 2 * this.meatToppings.length;
+  // Toppings - Veg: $1 each
+  let vegToppingCost = this.veggieToppings.length;
+  // Total Pizza Cost (per)
+  totalCost = basePrice + meatToppingCost + vegToppingCost;
+  return totalCost;
+};
+
 // User Interface Logic
 $(document).ready(function () {
   // After document is loaded.. do this.
   // Check pizza size
   let size = "";
   let allOrders = [];
+  let orderCount = 0;
+
+  $(".size").on("change", function () {
+    $(".size").not(this).prop("checked", false);
+  });
 
   $("#addToCart").click(function () {
-    $(".cartItems").append("<li>Pizza Order</li>");
-
+    console.log("Number of orders placed: " + orderCount);
     // Pizza Size
     if ($("#small").is(":checked")) {
       size = "small";
@@ -26,7 +51,6 @@ $(document).ready(function () {
     if ($("#large").prop("checked")) {
       size = "large";
     }
-    console.log("Size of pizza: " + size);
 
     let meatToppings = [];
     // Toppings -- Meat
@@ -39,7 +63,7 @@ $(document).ready(function () {
     if ($("#meatTopping3").is(":checked")) {
       meatToppings.push($("#meatTopping3").val());
     }
-    console.log("Meat toppings: " + meatToppings);
+
     // Toppings -- Veggies
     let veggieToppings = [];
     if ($("#veggieTopping1").is(":checked")) {
@@ -54,33 +78,37 @@ $(document).ready(function () {
     if ($("#veggieTopping4").is(":checked")) {
       veggieToppings.push($("#veggieTopping4").val());
     }
-    console.log("Veggie toppings: " + veggieToppings);
+
     // Quantity
-    let quantity = 0;
-    quantity = parseInt($("#quantity").val());
-    console.log("Quantity: " + quantity);
+    let quantity = parseInt($("#quantity").val());
 
-    let pizza1 = new Pizza(size, meatToppings, veggieToppings, quantity);
-    console.log(
-      "Pizza made: " + pizza1.size,
-      pizza1.meatToppings,
-      pizza1.veggieToppings,
-      pizza1.quantity
+    let pizza = new Pizza(size, meatToppings, veggieToppings, quantity);
+    allOrders.push(pizza);
+
+    let sizeCost = 0;
+    if (allOrders[orderCount].size === "small") {
+      sizeCost = 8;
+    } else if (allOrders[orderCount].size === "medium") {
+      sizeCost = 10;
+    } else if (allOrders[orderCount].size === "large") {
+      sizeCost = 12;
+    }
+
+    let order = pizza.calculateCost();
+    $(".cartItems").append("<li>Pizza Added: $" + order + "</li>");
+    $(".cartItems").append(
+      "<ul><li>" + allOrders[orderCount].size + ": $" + sizeCost + " </li></ul>"
     );
-
-    allOrders.push(pizza1);
-    for (let i = 0; i < allOrders.length; i++) {
-      console.log("Current number of orders: " + allOrders.length);
-      console.log("Order #" + (i + 1) + "'s size: " + allOrders[i].size);
-      console.log(
-        "Order #" + (i + 1) + "'s meat toppings: " + allOrders[i].meatToppings
-      );
-      console.log(
-        "Order #" + (i + 1) + "'s veg toppings: " + allOrders[i].veggieToppings
-      );
-      console.log(
-        "Order #" + (i + 1) + "'s quantity: " + allOrders[i].quantity
+    for (let i = 0; i < allOrders[orderCount].meatToppings.length; i++) {
+      $(".cartItems").append(
+        "<ul><li>" + allOrders[orderCount].meatToppings[i] + ": $2 </li></ul>"
       );
     }
+    for (let i = 0; i < allOrders[orderCount].veggieToppings.length; i++) {
+      $(".cartItems").append(
+        "<ul><li>" + allOrders[orderCount].veggieToppings[i] + ": $1 </li></ul>"
+      );
+    }
+    orderCount = orderCount + 1;
   });
 });

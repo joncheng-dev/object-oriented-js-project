@@ -48,7 +48,7 @@ Take information from html page.
 ------------
 
 TESTS:
-PASSED
+PASS
 take information from sizes
 -> Store in variable.
 
@@ -57,12 +57,48 @@ take information from the checkboxes. Store in array.
 -> meat
 -> veggies
 
-PASSED
+PASS
 take information from quantity. store in variable
 
-PASSED
+PASS
 add to cart button takes that information and saves into a pizza object
 
-how to calculate total price?
+PASS
+calculate price per pizza
 -> price per topping
 -> price per pizza size
+
+PASS
+add to user interface (website) cost of each
+- pizza size
+- meat toppings
+- veggie toppings
+
+PASS
+display to user in cart price of specified pizza
+
+PASS
+display to user in cart price of specified pizza:
+- Size
+- Meat Toppings
+- Veggie Toppings
+
+PASS
+for size, only one option can be chosen. 
+
+PASS
+after adding an order, pizza attributes correctly displayed in cart -- currently without quantity
+---------------------------
+
+after clicking addToCart, clear all check boxes & form
+
+display to user quantity of pizzas in cart
+
+display to user price of order (specified pizza + quantity)
+-> quantity is a multiplier
+
+
+
+
+
+
