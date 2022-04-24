@@ -97,11 +97,13 @@ $(document).ready(function () {
     $(".cartItems").append(
       "<li><strong>Pizza Added: $" +
         order +
-        "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp x " +
+        "&nbsp &nbsp &nbsp &nbsp x " +
         quantity +
-        "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp = $" +
+        "&nbsp &nbsp &nbsp &nbsp = $" +
         order * quantity +
-        "</strong></li>"
+        "&nbsp <button type='button' class='btn btn-outline-danger text-dark btn-sm' id='" +
+        orderCount +
+        "'>X</button></strong></li>"
     );
     $(".cartItems").append(
       "<ul><li>" + allOrders[orderCount].size + ": $" + sizeCost + "</li></ul>"
@@ -125,5 +127,10 @@ $(document).ready(function () {
     // Total Cost -- so far
     totalPurchase = totalPurchase + order * quantity;
     $("#total").html("<strong>$" + totalPurchase + "</strong>");
+  });
+
+  // What does the added delete button do if you click it?
+  $("#orderCount").click(function () {
+    console.log("Button clicked");
   });
 });

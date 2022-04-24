@@ -101,8 +101,17 @@ display to user price of order (specified pizza + quantity)
 
 PASS
 display price total by adding up all pizza in cart
----------------------------
 
+PASS
+clicking on addToCart button also.. 
+adds a delete button for each order in list
+
+---------------------------
+delete button removes the item from order
+
+delete button removes the item from order, and changes the order total (array)
+
+delete button removes the item from order, changes the order total (array), and 
 
 
 
