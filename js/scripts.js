@@ -11,6 +11,7 @@ $(document).ready(function () {
   // After document is loaded.. do this.
   // Check pizza size
   let size = "";
+  let allOrders = [];
 
   $("#addToCart").click(function () {
     $(".cartItems").append("<li>Pizza Order</li>");
@@ -66,5 +67,20 @@ $(document).ready(function () {
       pizza1.veggieToppings,
       pizza1.quantity
     );
+
+    allOrders.push(pizza1);
+    for (let i = 0; i < allOrders.length; i++) {
+      console.log("Current number of orders: " + allOrders.length);
+      console.log("Order #" + (i + 1) + "'s size: " + allOrders[i].size);
+      console.log(
+        "Order #" + (i + 1) + "'s meat toppings: " + allOrders[i].meatToppings
+      );
+      console.log(
+        "Order #" + (i + 1) + "'s veg toppings: " + allOrders[i].veggieToppings
+      );
+      console.log(
+        "Order #" + (i + 1) + "'s quantity: " + allOrders[i].quantity
+      );
+    }
   });
 });

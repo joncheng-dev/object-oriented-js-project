@@ -60,6 +60,9 @@ take information from the checkboxes. Store in array.
 PASSED
 take information from quantity. store in variable
 
-
-
+PASSED
 add to cart button takes that information and saves into a pizza object
+
+how to calculate total price?
+-> price per topping
+-> price per pizza size
