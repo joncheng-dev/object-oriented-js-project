@@ -29,11 +29,10 @@ Pizza.prototype.calculateCost = function () {
 
 // User Interface Logic
 $(document).ready(function () {
-  // After document is loaded.. do this.
-  // Check pizza size
   let size = "";
   let allOrders = [];
   let orderCount = 0;
+  let totalPurchase = 0;
 
   $(".size").on("change", function () {
     $(".size").not(this).prop("checked", false);
@@ -95,9 +94,17 @@ $(document).ready(function () {
     }
 
     let order = pizza.calculateCost();
-    $(".cartItems").append("<li>Pizza Added: $" + order + "</li>");
     $(".cartItems").append(
-      "<ul><li>" + allOrders[orderCount].size + ": $" + sizeCost + " </li></ul>"
+      "<li><strong>Pizza Added: $" +
+        order +
+        "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp x " +
+        quantity +
+        "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp = $" +
+        order * quantity +
+        "</strong></li>"
+    );
+    $(".cartItems").append(
+      "<ul><li>" + allOrders[orderCount].size + ": $" + sizeCost + "</li></ul>"
     );
     for (let i = 0; i < allOrders[orderCount].meatToppings.length; i++) {
       $(".cartItems").append(
@@ -110,5 +117,13 @@ $(document).ready(function () {
       );
     }
     orderCount = orderCount + 1;
+
+    // Clears current form after specified pizza added to cart.
+    $("input[type=checkbox]").prop("checked", false);
+    $("#quantity").val("");
+
+    // Total Cost -- so far
+    totalPurchase = totalPurchase + order * quantity;
+    $("#total").html("<strong>$" + totalPurchase + "</strong>");
   });
 });

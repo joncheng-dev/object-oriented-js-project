@@ -9,3 +9,9 @@ h4 {
 #side-bar {
   border-left-style: dotted;
 }
+
+#total {
+  text-align: right;
+  display: block;
+  margin-right: 3%;
+}

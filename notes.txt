@@ -88,16 +88,20 @@ for size, only one option can be chosen.
 
 PASS
 after adding an order, pizza attributes correctly displayed in cart -- currently without quantity
----------------------------
 
+PASS
 after clicking addToCart, clear all check boxes & form
 
+PASS
 display to user quantity of pizzas in cart
 
+PASS
 display to user price of order (specified pizza + quantity)
 -> quantity is a multiplier
 
-
+PASS
+display price total by adding up all pizza in cart
+---------------------------
 
 
 
