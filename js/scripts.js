@@ -101,7 +101,7 @@ $(document).ready(function () {
         quantity +
         "&nbsp &nbsp &nbsp &nbsp = $" +
         order * quantity +
-        "&nbsp <button type='button' class='btn btn-outline-danger text-dark btn-sm' id='" +
+        "&nbsp <button type='button' class='btn btn-outline-danger text-dark btn-sm' id='deleteButton" +
         orderCount +
         "'>X</button></strong></li>"
     );
@@ -128,9 +128,9 @@ $(document).ready(function () {
     totalPurchase = totalPurchase + order * quantity;
     $("#total").html("<strong>$" + totalPurchase + "</strong>");
   });
-
   // What does the added delete button do if you click it?
-  $("#orderCount").click(function () {
-    console.log("Button clicked");
+  $("li").on("click", "button.btn", function () {
+    console.log("Button clicked.");
+    alert($(this).text());
   });
 });

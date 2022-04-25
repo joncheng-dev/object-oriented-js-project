@@ -107,6 +107,8 @@ clicking on addToCart button also..
 adds a delete button for each order in list
 
 ---------------------------
+each delete button added performs a different function
+
 delete button removes the item from order
 
 delete button removes the item from order, and changes the order total (array)
