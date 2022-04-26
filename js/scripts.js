@@ -92,7 +92,6 @@ $(document).ready(function () {
     } else if (allOrders[orderCount].size === "large") {
       sizeCost = 12;
     }
-
     let order = pizza.calculateCost();
     $(".cartItems").append(
       "<li><strong>Pizza Added: $" +
@@ -103,7 +102,7 @@ $(document).ready(function () {
         order * quantity +
         "&nbsp <button type='button' class='btn btn-outline-danger text-dark btn-sm' id='deleteButton" +
         orderCount +
-        "'>X</button></strong></li>"
+        "'> X </button></strong></li>"
     );
     $(".cartItems").append(
       "<ul><li>" + allOrders[orderCount].size + ": $" + sizeCost + "</li></ul>"
@@ -129,8 +128,8 @@ $(document).ready(function () {
     $("#total").html("<strong>$" + totalPurchase + "</strong>");
   });
   // What does the added delete button do if you click it?
-  $("li").on("click", "button.btn", function () {
-    console.log("Button clicked.");
+
+  $(".cartItems").on("click", "button.btn-sm", function () {
     alert($(this).text());
   });
 });
