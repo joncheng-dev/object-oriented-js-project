@@ -106,8 +106,13 @@ PASS
 clicking on addToCart button also.. 
 adds a delete button for each order in list
 
+PASS
+each delete button added can dynamically alert a different message
+
 ---------------------------
-each delete button added performs a different function
+write a prototype that assigns id to each pizza created
+
+write a delete prototype 
 
 delete button removes the item from order
 

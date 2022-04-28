@@ -1,4 +1,20 @@
-// Business Logic
+// Business Logic for Order List ----------
+function orderList() {
+  this.orders = {};
+  this.currentId = 0;
+}
+
+orderList.prototype.assignId = function () {
+  this.currentId += 1;
+  return this.currentId;
+};
+
+orderList.prototype.addOrder = function (order) {
+  order.id = this.assignId();
+  this.orders[order.id] = order;
+};
+
+// Business Logic for Pizza Orders ----------
 function Pizza(size, meatToppings, veggieToppings, quantity) {
   this.size = size;
   this.meatToppings = meatToppings;
@@ -7,7 +23,6 @@ function Pizza(size, meatToppings, veggieToppings, quantity) {
 }
 
 Pizza.prototype.calculateCost = function () {
-  // To do
   // Size Cost: Base (S, M, L) - $8, $10, $12
   let totalCost = 0;
   let basePrice = 0;
@@ -28,9 +43,10 @@ Pizza.prototype.calculateCost = function () {
 };
 
 // User Interface Logic
+let allOrders = new orderList();
+
 $(document).ready(function () {
   let size = "";
-  let allOrders = [];
   let orderCount = 0;
   let totalPurchase = 0;
 
@@ -82,53 +98,55 @@ $(document).ready(function () {
     let quantity = parseInt($("#quantity").val());
 
     let pizza = new Pizza(size, meatToppings, veggieToppings, quantity);
-    allOrders.push(pizza);
+    allOrders.addOrder(pizza);
+    // Show orders of pizza added so far.
+    console.log("Orders: " + JSON.stringify(allOrders.orders));
+    console.log("Current Id: " + allOrders.currentId);
 
-    let sizeCost = 0;
-    if (allOrders[orderCount].size === "small") {
-      sizeCost = 8;
-    } else if (allOrders[orderCount].size === "medium") {
-      sizeCost = 10;
-    } else if (allOrders[orderCount].size === "large") {
-      sizeCost = 12;
-    }
-    let order = pizza.calculateCost();
-    $(".cartItems").append(
-      "<li><strong>Pizza Added: $" +
-        order +
-        "&nbsp &nbsp &nbsp &nbsp x " +
-        quantity +
-        "&nbsp &nbsp &nbsp &nbsp = $" +
-        order * quantity +
-        "&nbsp <button type='button' class='btn btn-outline-danger text-dark btn-sm' id='deleteButton" +
-        orderCount +
-        "'> X </button></strong></li>"
-    );
-    $(".cartItems").append(
-      "<ul><li>" + allOrders[orderCount].size + ": $" + sizeCost + "</li></ul>"
-    );
-    for (let i = 0; i < allOrders[orderCount].meatToppings.length; i++) {
-      $(".cartItems").append(
-        "<ul><li>" + allOrders[orderCount].meatToppings[i] + ": $2 </li></ul>"
-      );
-    }
-    for (let i = 0; i < allOrders[orderCount].veggieToppings.length; i++) {
-      $(".cartItems").append(
-        "<ul><li>" + allOrders[orderCount].veggieToppings[i] + ": $1 </li></ul>"
-      );
-    }
-    orderCount = orderCount + 1;
+    // let sizeCost = 0;
+    // if (allOrders[orderCount].size === "small") {
+    //   sizeCost = 8;
+    // } else if (allOrders[orderCount].size === "medium") {
+    //   sizeCost = 10;
+    // } else if (allOrders[orderCount].size === "large") {
+    //   sizeCost = 12;
+    // }
+    // let order = pizza.calculateCost();
+    // $(".cartItems").append(
+    //   "<li><strong>Pizza Added: $" +
+    //     order +
+    //     "&nbsp &nbsp &nbsp &nbsp x " +
+    //     quantity +
+    //     "&nbsp &nbsp &nbsp &nbsp = $" +
+    //     order * quantity +
+    //     "&nbsp <button type='button' class='btn btn-outline-danger text-dark btn-sm' id='deleteButton" +
+    //     orderCount +
+    //     "'> X </button></strong></li>"
+    // );
+    // $(".cartItems").append(
+    //   "<ul><li>" + allOrders[orderCount].size + ": $" + sizeCost + "</li></ul>"
+    // );
+    // for (let i = 0; i < allOrders[orderCount].meatToppings.length; i++) {
+    //   $(".cartItems").append(
+    //     "<ul><li>" + allOrders[orderCount].meatToppings[i] + ": $2 </li></ul>"
+    //   );
+    // }
+    // for (let i = 0; i < allOrders[orderCount].veggieToppings.length; i++) {
+    //   $(".cartItems").append(
+    //     "<ul><li>" + allOrders[orderCount].veggieToppings[i] + ": $1 </li></ul>"
+    //   );
+    // }
+    // orderCount = orderCount + 1;
 
-    // Clears current form after specified pizza added to cart.
-    $("input[type=checkbox]").prop("checked", false);
-    $("#quantity").val("");
+    // // Clears current form after specified pizza added to cart.
+    // $("input[type=checkbox]").prop("checked", false);
+    // $("#quantity").val("");
 
-    // Total Cost -- so far
-    totalPurchase = totalPurchase + order * quantity;
-    $("#total").html("<strong>$" + totalPurchase + "</strong>");
+    // // Total Cost -- so far
+    // totalPurchase = totalPurchase + order * quantity;
+    // $("#total").html("<strong>$" + totalPurchase + "</strong>");
   });
   // What does the added delete button do if you click it?
-
   $(".cartItems").on("click", "button.btn-sm", function () {
     alert($(this).text());
   });
