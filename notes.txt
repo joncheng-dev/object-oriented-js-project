@@ -109,8 +109,15 @@ adds a delete button for each order in list
 PASS
 each delete button added can dynamically alert a different message
 
----------------------------
+PASS
 write a prototype that assigns id to each pizza created
+(display all stored orders in console)
+
+PASS
+display orders stored in console individually
+---------------------------
+
+display order attributes individually to html upon clicking button
 
 write a delete prototype 
 

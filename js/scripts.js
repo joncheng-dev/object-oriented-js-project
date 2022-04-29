@@ -14,6 +14,13 @@ orderList.prototype.addOrder = function (order) {
   this.orders[order.id] = order;
 };
 
+orderList.prototype.findOrder = function (id) {
+  if (this.orders[id] != undefined) {
+    return this.orders[id];
+  }
+  return false;
+};
+
 // Business Logic for Pizza Orders ----------
 function Pizza(size, meatToppings, veggieToppings, quantity) {
   this.size = size;
@@ -55,7 +62,6 @@ $(document).ready(function () {
   });
 
   $("#addToCart").click(function () {
-    console.log("Number of orders placed: " + orderCount);
     // Pizza Size
     if ($("#small").is(":checked")) {
       size = "small";
@@ -100,7 +106,17 @@ $(document).ready(function () {
     let pizza = new Pizza(size, meatToppings, veggieToppings, quantity);
     allOrders.addOrder(pizza);
     // Show orders of pizza added so far.
-    console.log("Orders: " + JSON.stringify(allOrders.orders));
+    // console.log("Orders: " + JSON.stringify(allOrders.orders));
+
+    Object.keys(allOrders.orders).forEach(function (key) {
+      const order = allOrders.findOrder(key);
+      console.log("Order Id: " + order.id);
+      console.log("Pizza size: " + order.size);
+      console.log("Meat Toppings: " + order.meatToppings);
+      console.log("Veggie Toppings: " + order.veggieToppings);
+      console.log("Quantity: " + order.quantity);
+    });
+
     console.log("Current Id: " + allOrders.currentId);
 
     // let sizeCost = 0;
@@ -138,9 +154,9 @@ $(document).ready(function () {
     // }
     // orderCount = orderCount + 1;
 
-    // // Clears current form after specified pizza added to cart.
-    // $("input[type=checkbox]").prop("checked", false);
-    // $("#quantity").val("");
+    // Clears current form after specified pizza added to cart.
+    $("input[type=checkbox]").prop("checked", false);
+    $("#quantity").val("");
 
     // // Total Cost -- so far
     // totalPurchase = totalPurchase + order * quantity;
