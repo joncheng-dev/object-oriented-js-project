@@ -115,10 +115,11 @@ write a prototype that assigns id to each pizza created
 
 PASS
 display orders stored in console individually
----------------------------
 
+PASS
 display order attributes individually to html upon clicking button
 
+---------------------------
 write a delete prototype 
 
 delete button removes the item from order
@@ -126,6 +127,3 @@ delete button removes the item from order
 delete button removes the item from order, and changes the order total (array)
 
 delete button removes the item from order, changes the order total (array), and 
-
-
-
