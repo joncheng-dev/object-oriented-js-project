@@ -119,11 +119,32 @@ display orders stored in console individually
 PASS
 display order attributes individually to html upon clicking button
 
----------------------------
+PASS
 write a delete prototype 
 
+PASS
 delete button removes the item from order
 
+PASS
 delete button removes the item from order, and changes the order total (array)
 
-delete button removes the item from order, changes the order total (array), and 
+PASS
+refactor code to make a function that collects user input and stores it as an order
+
+PASS
+upon clicking add to cart..
+-> remove all existing orders in html 
+-> add list of all orders
+
+PASS
+upon clicking delete order
+-> delete order by id
+-> remove all existing orders in html
+-> show list of all orders
+---------------------------
+
+
+function that takes the current pizza order along with quantity, and calculates cost
+-> current pizza order --> order.calculateCost();
+-> quantity --> order.quantity
+
