@@ -141,10 +141,30 @@ upon clicking delete order
 -> delete order by id
 -> remove all existing orders in html
 -> show list of all orders
----------------------------
 
-
+PASS
 function that takes the current pizza order along with quantity, and calculates cost
 -> current pizza order --> order.calculateCost();
 -> quantity --> order.quantity
 
+PASS
+clicking delete button should remove current specified order from total cost.
+Show total cost with new total. 
+
+->Order 1 --> cost * quantity
+->Order 2 --> cost * quantity
+->Order 3 --> cost * quantity
+ADD ALL UP
+= Total (return this)
+
+ORDER 2 DELETED:
+->Order 1 --> cost * quantity
+->Order 3 --> cost * quantity
+ADD ALL UP
+= Total (return this)
+
+To calculate.. you would go through the order object in the order list. for each item, 
+-calculate total. 
+-then multiply by quantity.
+Return this.
+---------------------------

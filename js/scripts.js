@@ -106,8 +106,6 @@ function showAllOrders() {
   $(".cartItems").html("");
   Object.keys(allOrders.orders).forEach(function (key) {
     const order = allOrders.findOrder(key);
-    console.log("Current Order Id: " + allOrders.currentId);
-    console.log("Pizza size: " + order.size);
     let sizeCost = 0;
     if (order.size === "small") {
       sizeCost = 8;
@@ -117,16 +115,12 @@ function showAllOrders() {
       sizeCost = 12;
     }
     let currentOrder = order.calculateCost();
-    console.log("Meat Toppings: " + order.meatToppings);
-    console.log("Veggie Toppings: " + order.veggieToppings);
-    console.log("Quantity: " + order.quantity);
-    console.log("Current total: $" + currentOrder * order.quantity);
     $(".cartItems").append(
-      "<li><strong>Pizza Added: $" +
+      "<li><strong>Pizza Added: &nbsp$" +
         currentOrder +
-        "&nbsp x " +
+        "&nbsp &nbsp &nbsp x " +
         order.quantity +
-        "&nbsp = $" +
+        "&nbsp &nbsp &nbsp &nbsp = $" +
         currentOrder * order.quantity +
         "&nbsp <button class = 'deleteButton' id='" +
         order.id +
@@ -152,46 +146,35 @@ function showAllOrders() {
   $("#quantity").val("");
 }
 
-function calculateItemTotal(orderCount) {
-  const order = allOrders.findOrder(orderCount);
-  console.log("Order number: " + order);
-  console.log("Current Order Id: " + allOrders.currentId);
-  console.log("Pizza size: " + order.size);
-  console.log("Total: " + order.calculateCost * order.quantity);
-  return order.calculateCost * order.quantity;
+function calculateGrandTotal() {
+  let grandTotal = 0;
+  Object.keys(allOrders.orders).forEach(function (key) {
+    const order = allOrders.findOrder(key);
+    grandTotal = grandTotal + order.calculateCost() * order.quantity;
+  });
+  $("#total").html("<strong>$" + grandTotal + "</strong>");
 }
 
 function deleteOrderListener() {
   $(".cartItems").on("click", ".deleteButton", function () {
     allOrders.deleteOrder(this.id);
     $(".cartItems").html("");
+    $("#total").html("");
     // Reshows the new list of orders
     showAllOrders();
-    console.log("Orders: " + JSON.stringify(allOrders.orders));
+    calculateGrandTotal();
   });
 }
 
 $(document).ready(function () {
   deleteOrderListener();
-  let orderCount = 1;
-  let totalPurchase = 0;
   // Only one pizza size can be checked at a given time
   $(".size").on("change", function () {
     $(".size").not(this).prop("checked", false);
   });
-  // Upon clicking "add to cart" button..
   $("#addToCart").click(function () {
-    // Collects user input and stores the order.
     addOrderToCart();
     showAllOrders();
-    let itemTotal = calculateItemTotal(orderCount);
-    totalPurchase += itemTotal;
-    $("#total").html("<strong>$" + totalPurchase + "</strong>");
-    orderCount = orderCount + 1;
-    $(".cartItems").show();
+    calculateGrandTotal();
   });
-  // What does the added delete button do if you click it?
-  // $(".cartItems").on("click", ".deleteButton", function () {
-  //   alert($(this).text());
-  // });
 });
