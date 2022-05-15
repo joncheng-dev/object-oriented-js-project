@@ -168,3 +168,7 @@ To calculate.. you would go through the order object in the order list. for each
 -then multiply by quantity.
 Return this.
 ---------------------------
+
+start grand total display with zero. 
+
+change pictures for pizza

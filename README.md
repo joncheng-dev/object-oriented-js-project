@@ -1,8 +1,8 @@
-# _{Application Name}_
+# _Pizza Pi_
 
 #### By _**Jonathan Cheng**_
 
-#### _{Brief description of application}_
+#### _A point of sales for placing pizza orders. It will collect users' orders and tally up a total cost._
 
 ## Technologies Used
 
@@ -13,22 +13,18 @@
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_On the html page, the user can specify the size of pizza, toppings, and quantity for that specific order. Clicking Add to Cart adds to the subtotal and creates a list. The user can continue to add additional orders, and the app will keep track of them. The user can also delete the order, and it will keep track of the total cost._
 
 ## Setup/Installation Requirements
 
-- _Clone this repository to your desktop_
-- _Navigate ot the top level of the directory_
-- _in a simple_
-- _easy-to-understand_
-- _format_
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
+- _Clone this repository to your desktop._
+- _Navigate to the top level of the directory._
+- _Open index.html in your browser._
 
 ## Known Bugs
 
-- _Any known issues_
-- _should go here_
+- _Delete button -- X -- moves to next line when cost subtotal exceeds line space, looking less organized._
+- _Checkout button is not functional._
 
 ## License
 
